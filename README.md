@@ -22,7 +22,6 @@
 - **JavaScript (ES6)** – асинхронные запросы, работа с DOM, Geolocation API, LocalStorage
 - **OpenWeatherMap API** – получение данных о погоде
 
-## 🧪 Как запустить локально
-1. Клонируйте репозиторий:
-   ```bash
-   git clone https://github.com/zakutnevd/weather-app.git
+<a href="https://zakutnevd.github.io/weather-app/">
+  <img src="https://img.shields.io/badge/🚀-Запустить_проект-brightgreen?style=for-the-badge" alt="Запустить">
+</a>
