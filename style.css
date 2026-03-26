@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: background 0.5s ease;
+}
+
+/* Динамический фон (меняется в JS) */
+body[data-weather="Clear"] { background: linear-gradient(135deg, #f7b733, #fc4a1a); }
+body[data-weather="Clouds"] { background: linear-gradient(135deg, #757F9A, #D7DDE8); }
+body[data-weather="Rain"] { background: linear-gradient(135deg, #2C3E50, #4CA1AF); }
+body[data-weather="Snow"] { background: linear-gradient(135deg, #E6DADA, #9FACE6); }
+body[data-weather="Thunderstorm"] { background: linear-gradient(135deg, #232526, #414345); }
+body[data-weather="Drizzle"] { background: linear-gradient(135deg, #3a7bd5, #3a6072); }
+body[data-weather="Mist"], body[data-weather="Fog"] { background: linear-gradient(135deg, #606c88, #3f4c6b); }
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 32px;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    color: white;
+    transition: all 0.3s;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.search-box {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+#cityInput {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-weight: 500;
+}
+
+#searchBtn, #locationBtn {
+    background: white;
+    border: none;
+    width: 50px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s, background 0.2s;
+}
+
+#searchBtn:hover, #locationBtn:hover {
+    transform: scale(1.05);
+    background: #f0f0f0;
+}
+
+/* Текущая погода */
+.current-weather {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 28px;
+    padding: 24px;
+    margin-bottom: 30px;
+}
+
+.city-info h2 {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+#dateTime {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.weather-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.weather-icon img {
+    width: 100px;
+    height: 100px;
+}
+
+.temperature {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.description {
+    font-size: 1.3rem;
+    text-transform: capitalize;
+}
+
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+}
+
+/* Прогноз */
+.forecast h3 {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.forecast-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+}
+
+.forecast-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 20px;
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.forecast-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.forecast-card .day {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.forecast-card img {
+    width: 60px;
+    height: 60px;
+    margin: 10px 0;
+}
+
+.forecast-card .temp {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.forecast-card .desc {
+    font-size: 0.8rem;
+    text-transform: capitalize;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+    }
+    .weather-main {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .details {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .forecast-cards {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    .temperature {
+        font-size: 2.5rem;
+    }
+}
