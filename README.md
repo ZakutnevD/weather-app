@@ -25,4 +25,4 @@
 ## 🧪 Как запустить локально
 1. Клонируйте репозиторий:
    ```bash
-   git clone https://zakutnevd.github.io/V2/
+   git clone https://github.com/YOUR_USERNAME/weather-app.git
